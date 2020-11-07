@@ -1,0 +1,15 @@
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\bin\Release\IceBurn_simulator.exe.config
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\bin\Release\IceBurn_simulator.exe
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\bin\Release\IceBurn_simulator.pdb
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\bin\Release\Interop.WMPLib.dll
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\bin\Release\AxInterop.WMPLib.dll
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.csprojAssemblyReference.cache
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\Interop.WMPLib.dll
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\AxInterop.WMPLib.dll
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.csproj.ResolveComReference.cache
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.Form1.resources
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.Form2.resources
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.Properties.Resources.resources
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.csproj.GenerateResource.cache
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.exe
+C:\Users\Kamishiro\Desktop\遊戲資料\IceBurn_simulator\IceBurn_simulator\obj\Release\IceBurn_simulator.pdb
