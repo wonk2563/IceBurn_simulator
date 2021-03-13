@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Drawing.Drawing2D;
 using System.Media;
 using System.IO;
+using System.Net;
 
 
 namespace IceBurn_simulator
@@ -21,6 +22,9 @@ namespace IceBurn_simulator
         public Form1()
         {
             InitializeComponent();
+
+            //檢查更新
+            Cheak_update();
             //media音量設定
             axWindowsMediaPlayer1.settings.volume = 15;
             //啟用動畫、使用台數初始化
@@ -55,6 +59,90 @@ namespace IceBurn_simulator
             axWindowsMediaPlayer1.PlayStateChange += player_PlayStateChange;
         }
 
+
+        //---------------------檢查更新---------------------------------------
+        bool cheakUpdate = false;
+        bool nextTime = false;
+        string remindedVersion = "";
+        string lastVersion = "" , nowVersion = "";
+        private void Cheak_update()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "data/updateSetting.txt";
+            string[] lines = System.IO.File.ReadAllLines(@path);
+            foreach(string line in lines){
+                string[] words = line.Split('=');
+                if (words[0] == "cheakUpdate")
+                    cheakUpdate = bool.Parse(words[1]);
+                if (words[0] == "nexttime")
+                    nextTime = bool.Parse(words[1]);
+                if (words[0] == "remindedversion")
+                    remindedVersion = words[1].Replace(".", "");
+            }                        
+            string uriPath = AppDomain.CurrentDomain.BaseDirectory + "data/cheakURI.txt";
+            string cheakURI = File.ReadAllText(@uriPath, Encoding.UTF8);
+            DownloadStreamString(cheakURI);            
+        }
+
+        public void DownloadStreamString(string url)
+        {
+            try
+            {
+                WebClient wc = new WebClient();
+                wc.DownloadFileCompleted += update_DownloadFileCompleted;
+                wc.DownloadFileAsync(new Uri(url), "data/updateinfo.txt");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("獲取更新資訊失敗，將於下次開啟時重新獲取資訊。" + "\r\n" + ex.Message, "錯誤");
+            }
+        }
+
+        string[] updateInfo;
+        private void update_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            updateInfo = File.ReadAllLines("data/updateinfo.txt", Encoding.UTF8);
+            if(updateInfo.Length != 0)
+            {
+                lastVersion = updateInfo[0].Replace(".", "");
+                nowVersion = nowVersion = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "version.txt", Encoding.UTF8).Replace("\n", "").Replace(" ", "").Replace("\t", "").Replace("\r", "").Replace(".", "");
+                if (int.Parse(nowVersion) < int.Parse(lastVersion))
+                {
+                    if (cheakUpdate || right_click)
+                    {
+                        updateForm f3 = new updateForm();
+                        f3.Show();
+                        right_click = false;
+                    }
+                    else if (nextTime)
+                    {
+                        if (int.Parse(remindedVersion) < int.Parse(lastVersion))
+                        {
+                            updateForm f3 = new updateForm();
+                            f3.Show();
+                        }
+                        else
+                            File.Delete("data/updateinfo.txt");
+                    }
+                    else
+                        File.Delete("data/updateinfo.txt");
+                }
+                else
+                {
+                    if (right_click)
+                    {
+                        MessageBox.Show("目前的版本與伺服器相同或更新。", "檢查更新");
+                    }
+                    File.Delete("data/updateinfo.txt");
+                }
+            }                
+        }
+
+        bool right_click = false;
+        private void 檢查更新ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            right_click = true;
+            Cheak_update();
+        }
 
         //---------------------按鍵事件設定---------------------------------------
         private void Usenum_KeyPress(object sender, KeyPressEventArgs e)

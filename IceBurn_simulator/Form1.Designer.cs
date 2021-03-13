@@ -40,8 +40,11 @@
             this.useNum_textBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ani_checkBox = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.檢查更新ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -164,6 +167,21 @@
             this.ani_checkBox.CheckedChanged += new System.EventHandler(this.ani_checkBox_CheckedChanged);
             this.ani_checkBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ani_checkBox_KeyUp);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.檢查更新ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 28);
+            // 
+            // 檢查更新ToolStripMenuItem
+            // 
+            this.檢查更新ToolStripMenuItem.Name = "檢查更新ToolStripMenuItem";
+            this.檢查更新ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.檢查更新ToolStripMenuItem.Text = "檢查更新";
+            this.檢查更新ToolStripMenuItem.Click += new System.EventHandler(this.檢查更新ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -172,6 +190,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(820, 786);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.ani_checkBox);
             this.Controls.Add(this.useNum_textBox);
             this.Controls.Add(this.label2);
@@ -188,12 +207,14 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ice_Burner_Simulator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +232,8 @@
         private System.Windows.Forms.TextBox useNum_textBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox ani_checkBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 檢查更新ToolStripMenuItem;
     }
 }
 
