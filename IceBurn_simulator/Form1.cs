@@ -477,6 +477,7 @@ namespace IceBurn_simulator
                 name_list.Add(name[index] + " X" + getNum);
             }
 
+            //傳送給Form2
             f2.list_clear();
             for (int i = 0; i < name_list.Count; i++)
             {
